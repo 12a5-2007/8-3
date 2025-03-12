@@ -24,6 +24,8 @@ let males = [
     'Trung Kiên'
 ]
 
+let males2 = Array.from(males)
+
 let females = [
     'Ngọc Hoa',
     'Ngọc Diệp',
@@ -45,6 +47,8 @@ let females = [
     'Tú Quỳnh'
 ]
 
+let females2 = Array.from(females)
+
 const container1 = document.getElementById('nameContainer1')
 const container2 = document.getElementById('nameContainer2')
 const button = document.getElementById('startAnimation')
@@ -58,12 +62,12 @@ const updateMale = () => {
     container1.innerHTML = ''
     const nameElement = document.createElement('div')
     nameElement.classList.add('name')
-    nameElement.textContent = males[currentIndex1]
+    nameElement.textContent = males2[currentIndex1]
     container1.appendChild(nameElement)
     setTimeout(() => {
         nameElement.classList.add('active')
     }, 10)
-    currentIndex1 = (currentIndex1 + 1) % males.length
+    currentIndex1 = (currentIndex1 + 1) % males2.length
 }
 
 // Function to update the displayed number in the second column
@@ -71,12 +75,12 @@ const updateFemale = () => {
     container2.innerHTML = ''
     const numberElement = document.createElement('div')
     numberElement.classList.add('name')
-    numberElement.textContent = females[currentIndex2]
+    numberElement.textContent = females2[currentIndex2]
     container2.appendChild(numberElement)
     setTimeout(() => {
         numberElement.classList.add('active')
     }, 10)
-    currentIndex2 = (currentIndex2 + 1) % females.length
+    currentIndex2 = (currentIndex2 + 1) % females2.length
 }
 
 button.addEventListener('click', () => {
@@ -84,7 +88,7 @@ button.addEventListener('click', () => {
 
     let elapsed = 0
     const duration = 3000 // Total animation duration in ms
-    const intervalSpeed = 100 // Speed of each change in ms
+    const intervalSpeed = 60 // Speed of each change in ms
 
     interval = setInterval(() => {
         updateMale()
