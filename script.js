@@ -24,8 +24,6 @@ let males = [
     'Trung Kiên'
 ]
 
-let males2 = Array.from(males)
-
 let females = [
     'Ngọc Hoa',
     'Ngọc Diệp',
@@ -47,6 +45,7 @@ let females = [
     'Tú Quỳnh'
 ]
 
+let males2 = Array.from(males)
 let females2 = Array.from(females)
 
 const container1 = document.getElementById('nameContainer1')
@@ -56,6 +55,12 @@ const button = document.getElementById('startAnimation')
 let currentIndex1 = 0
 let currentIndex2 = 0
 let interval
+
+const updateButtonState = () => {
+    button.disabled = males.length === 0 && females.length === 0
+}
+
+updateButtonState()
 
 // Function to update the displayed name in the first column
 const updateMale = () => {
@@ -145,6 +150,8 @@ button.addEventListener('click', () => {
             // Reset current indexes
             currentIndex1 = 0
             currentIndex2 = 0
+
+            updateButtonState()
         }
     }, intervalSpeed)
 })
