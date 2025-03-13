@@ -93,7 +93,7 @@ button.addEventListener('click', () => {
 
     let elapsed = 0
     const duration = 3000 // Total animation duration in ms
-    const intervalSpeed = 60 // Speed of each change in ms
+    const intervalSpeed = 80 // Speed of each change in ms
 
     interval = setInterval(() => {
         updateMale()
